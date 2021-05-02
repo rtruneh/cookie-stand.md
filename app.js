@@ -3,8 +3,8 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', ]
 
 function random(min, max) {
-    return Math.floor(Math.random() * max) + min;
-}
+    return Math.floor(Math.random() * max) + min;}
+
 const seattle = {
     city: 'Seattle',
     minCustPerHour: 23,
@@ -18,7 +18,6 @@ const seattle = {
     randCookiesPerHour: random(this.minCustPerHour, this.maxCustPerHour), 
     randCustPerHour: random(this.minCustPerHour, this.maxCustPerHour),
 
-
     randCookiesPerHour: function() {
         for (i = 0; i < hours.length; i++) {
            return seattle.randCookiesPerHour; 
@@ -26,9 +25,7 @@ const seattle = {
     }
 };
     
-render(seattle) {
-    return seattle();
-};
+console.log(seattle.randCookiesPerHour);
 
 
 const tokyo = {
@@ -41,17 +38,17 @@ const tokyo = {
     cookiePerHour: [],
     totalDailyCookies: 0,
 
-    randCookiePerHour: function() {
-        console.log(Math.floor(Math.random() * maxCustPerHour) + minCustPerHour);
-    },
-    randCustPerHour: function() {
-        console.log(Math.floor(Math.random() * maxCustPerHour) + minCustPerHour);
+    randCookiesPerHour: random(this.minCustPerHour, this.maxCustPerHour), 
+    randCustPerHour: random(this.minCustPerHour, this.maxCustPerHour),
 
-    },
-render() {
-
-}
+    randCookiesPerHour: function() {
+        for (i = 0; i < hours.length; i++) {
+           return seattle.randCookiesPerHour; 
+        }
+    }
 };
+    
+
 
 const dubai = {
     city: 'Dubai',
