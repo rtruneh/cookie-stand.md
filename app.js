@@ -19,13 +19,13 @@ const seattle = {
     randCustPerHour: random(this.minCustPerHour, this.maxCustPerHour),
 
     randCookiesPerHour: function() {
-        for (i = 0; i < hours.length; i++) {
-           return seattle.randCookiesPerHour; 
+        for (let i = 0; i < hours.length; i++) {
+           seattle.randCookiesPerHour.render; 
         }
     }
 };
     
-console.log(seattle.randCookiesPerHour);
+console.log(seattle.randCookiesPerHour());
 
 
 const tokyo = {
