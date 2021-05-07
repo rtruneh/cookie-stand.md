@@ -20,6 +20,8 @@ let dubai = new salmonCookies('Dubai', 11, 38, 3.7);
 let paris = new salmonCookies('Paris', 20, 38, 2.3);
 let lima = new salmonCookies('Lima', 2, 16, 4.6);
 
+console.log(salmonCookies);
+
 //function to calculate random//
 // function random(min, max) {
 //     return Math.floor(Math.random() * max - min + 1) + min;}
