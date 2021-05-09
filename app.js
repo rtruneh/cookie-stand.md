@@ -13,31 +13,45 @@ const seattle = {
     totalDailyCookies: 0,
     custPerHour: [],
     cookiesPerHour: [],
-    totalDailyCookies: 0,
 
-    // randCookies: random(this.minCustPerHour, this.maxCustPerHour), 
-    // randCust: random(this.minCustPerHour, this.maxCustPerHour),
-
-    randCookiesPerHour: function() {
+    calcCustPerHour: function() {
                  for (let i = 0; i < hours.length; i++) {
-                     let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-           console.log(randNum);
+                     this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
           }
         },
 
-          randCustomerPerHour: function() {
+          calcCookiesPerHour: function() {
+              this.calcCustPerHour();
             for (let i = 0; i < hours.length; i++) {
+                const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
+                this.cookiesPerHour.push(oneHour)
+                this.totalDailyCookies += oneHour;
                 let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-      console.log(randNum);
-     }
+            console.log(randNum);
+            }
+        },
+
+render() {
+    this.calcCookiesPerHour();
+    const ul = document.getElementById('seattle')
+    ul.textContent = 'Seattle';
+    for (let i = 0; i < hours.length; i++) {
+        //to create the list item
+        const li = document.createElement('li')
+        // to add the text 6am: 16 cookies
+        li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+        ul.appendChild(li);
+        console.log(li)
+
+    }
+   //create a list item (li) for the total
+   const li = document.createElement('li')
+   //total: 34543 cookies
+   li.textContent = 'Total: ' + seattle.totalDailyCookies + 'cookies';
+   ul.appendChild(li);
+
 }
 };
-//calling to calculate random number??
-seattle.randCookiesPerHour();
-seattle.randCustomerPerHour();
-
-
-
 
 const tokyo = {
     city: 'Tokyo',
@@ -47,26 +61,45 @@ const tokyo = {
     totalDailyCookies: 0,
     custPerHour: [],
     cookiePerHour: [],
-    totalDailyCookies: 0,
 
-
-    randCookiesPerHour: function() {
+    calcCustPerHour: function() {
         for (let i = 0; i < hours.length; i++) {
-            let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-  console.log(randNum);
+            this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
  }
 },
 
- randCustomerPerHour: function() {
+ calcCookiesPerHour: function() {
+     this.calcCustPerHour();
    for (let i = 0; i < hours.length; i++) {
+       const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
+       this.cookiePerHour.push(oneHour)
+       this.totalDailyCookies += oneHour;
        let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-console.log(randNum);
+   console.log(randNum);
+   }
+},
+
+render() {
+this.calcCookiesPerHour();
+const ul = document.getElementById('tokyo')
+ul.textContent = 'Tokyo';
+for (let i = 0; i < hours.length; i++) {
+//to create the list item
+const li = document.createElement('li')
+// to add the text 6am: 16 cookies
+li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+ul.appendChild(li);
+console.log(li)
+
 }
+//create a list item (li) for the total
+const li = document.createElement('li')
+//total: 34543 cookies
+li.textContent = 'Total: ' + this.totalDailyCookies + 'cookies';
+ul.appendChild(li);
+
 }
 };
-//calling to calculate random number??
-tokyo.randCookiesPerHour();
-tokyo.randCustomerPerHour();
 
 
 const dubai = {
@@ -77,26 +110,45 @@ const dubai = {
     totalDailyCookies: 0,
     custPerHour: [],
     cookiePerHour: [],
-    totalDailyCookies: 0,
 
-
-    randCookiesPerHour: function() {
+    calcCustPerHour: function() {
         for (let i = 0; i < hours.length; i++) {
-            let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-  console.log(randNum);
+            this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
  }
 },
 
- randCustomerPerHour: function() {
+ calcCookiesPerHour: function() {
+     this.calcCustPerHour();
    for (let i = 0; i < hours.length; i++) {
+       const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
+       this.cookiePerHour.push(oneHour)
+       this.totalDailyCookies += oneHour;
        let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-console.log(randNum);
+   console.log(randNum);
+   }
+},
+
+render() {
+this.calcCookiesPerHour();
+const ul = document.getElementById('dubai');
+ul.textContent = 'Dubai'
+for (let i = 0; i < hours.length; i++) {
+//to create the list item
+const li = document.createElement('li')
+// to add the text 6am: 16 cookies
+li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+ul.appendChild(li);
+console.log(li)
+
 }
+//create a list item (li) for the total
+const li = document.createElement('li')
+//total: 34543 cookies
+li.textContent = 'Total: ' + this.totalDailyCookies + 'cookies';
+ul.appendChild(li);
+
 }
 };
-//calling to calculate random number??
-dubai.randCookiesPerHour();
-dubai.randCustomerPerHour();
 
 const paris = {
     city: 'Paris',
@@ -106,26 +158,45 @@ const paris = {
     totalDailyCookies: 0,
     custPerHour: [],
     cookiePerHour: [],
-    totalDailyCookies: 0,
 
-
-    randCookiesPerHour: function() {
+    calcCustPerHour: function() {
         for (let i = 0; i < hours.length; i++) {
-            let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-  console.log(randNum);
+            this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
  }
 },
 
- randCustomerPerHour: function() {
+ calcCookiesPerHour: function() {
+     this.calcCustPerHour();
    for (let i = 0; i < hours.length; i++) {
+       const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
+       this.cookiePerHour.push(oneHour)
+       this.totalDailyCookies += oneHour;
        let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-console.log(randNum);
+   console.log(randNum);
+   }
+},
+
+render() {
+this.calcCookiesPerHour();
+const ul = document.getElementById('paris')
+ul.textContent = 'Paris';
+for (let i = 0; i < hours.length; i++) {
+//to create the list item
+const li = document.createElement('li')
+// to add the text 6am: 16 cookies
+li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+ul.appendChild(li);
+console.log(li)
+
 }
+//create a list item (li) for the total
+const li = document.createElement('li')
+//total: 34543 cookies
+li.textContent = 'Total: ' + this.totalDailyCookies + 'cookies';
+ul.appendChild(li);
+
 }
 };
-//calling to calculate random number??
-paris.randCookiesPerHour();
-paris.randCustomerPerHour();
 
 const lima = {
     city: 'Lima',
@@ -135,23 +206,52 @@ const lima = {
     totalDailyCookies: 0,
     custPerHour: [],
     cookiePerHour: [],
-    totalDailyCookies: 0,
 
-
-    randCookiesPerHour: function() {
+    calcCustPerHour: function() {
         for (let i = 0; i < hours.length; i++) {
-            let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-  console.log(randNum);
+            this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
  }
 },
 
- randCustomerPerHour: function() {
+ calcCookiesPerHour: function() {
+     this.calcCustPerHour();
    for (let i = 0; i < hours.length; i++) {
+       const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
+       this.cookiePerHour.push(oneHour)
+       this.totalDailyCookies += oneHour;
        let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-console.log(randNum);
+   console.log(randNum);
+   }
+},
+
+render() {
+this.calcCookiesPerHour();
+const ul = document.getElementById('lima')
+ul.textContent = 'Lima';
+for (let i = 0; i < hours.length; i++) {
+//to create the list item
+const li = document.createElement('li')
+// to add the text 6am: 16 cookies
+li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+ul.appendChild(li);
+console.log(li)
+
 }
+//create a list item (li) for the total
+const li = document.createElement('li')
+//total: 34543 cookies
+li.textContent = 'Total: ' + this.totalDailyCookies + 'cookies';
+ul.appendChild(li);
+
 }
 };
-//calling to calculate random number??
-lima.randCookiesPerHour();
-lima.randCustomerPerHour();
+
+
+
+const allShops = [seattle, tokyo, dubai, paris, lima];
+(function renderAllShops () {
+for (let i = 0; i <allShops.length; i++) {
+allShops[i].render();
+}
+
+})()
