@@ -26,28 +26,28 @@ const seattle = {
                 const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
                 this.cookiesPerHour.push(oneHour)
                 this.totalDailyCookies += oneHour;
-                let randNum = random(this.minCustPerHour, this.maxCustPerHour)
-            console.log(randNum);
+                // let randNum = random(this.minCustPerHour, this.maxCustPerHour);
+            // console.log(randNum);
             }
         },
+
 
 render() {
     this.calcCookiesPerHour();
     const ul = document.getElementById('seattle')
-    ul.textContent = 'Seattle';
     for (let i = 0; i < hours.length; i++) {
         //to create the list item
         const li = document.createElement('li')
         // to add the text 6am: 16 cookies
-        li.textContent = hours[i] + ': ' + this.calcCookiesPerHour[i] + ' cookies';
+        li.textContent = hours[i] + ': ' + this.cookiesPerHour[i] + ' cookies';
         ul.appendChild(li);
-        console.log(li)
+        console.log(li);
 
     }
    //create a list item (li) for the total
    const li = document.createElement('li')
    //total: 34543 cookies
-   li.textContent = 'Total: ' + seattle.totalDailyCookies + 'cookies';
+   li.textContent = 'Total: ' + this.totalDailyCookies + 'cookies';
    ul.appendChild(li);
 
 }
