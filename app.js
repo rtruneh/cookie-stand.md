@@ -46,14 +46,13 @@ Shops.prototype.render = function() {
     //create table
         const table = document.getElementById('table')
         const tr = document.createElement('tr')
-        const th = document.createElement('th')
-        
         table.appendChild(tr);
+       
+        const th = document.createElement('th')
+        th.textContent = this.city
         tr.appendChild(th);
-        th.textContent = this.city;
 
         for (var i = 0; i < hours.length; i++) {
-        
             const td = document.createElement('td');
             td.textContent = this.calcCookiesPerHour;
             tr.appendChild(td);
@@ -62,19 +61,7 @@ Shops.prototype.render = function() {
         const td = document.createElement('td');
         td.textContent = hours[i]
         tr.appendChild(td)
-    }
-        // for (let i = 0; i = hours.length; i++){
-
-        //     const td = document.createElement('td');
-        //     td.textContent = this.calcCookiesPerHour;
-        //     tr.appendChild(td)
-        // }
-
-    //     // const td = document.createElement('td');
-    //     // td.textContent = this.cookiesPerHour;
-    //     // tr.appendChild(td); 
-    //     // table.appendChild(tr);
-    // };
+    };
 
 
 
