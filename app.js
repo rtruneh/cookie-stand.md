@@ -26,8 +26,6 @@ const seattle = {
                 const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
                 this.cookiesPerHour.push(oneHour)
                 this.totalDailyCookies += oneHour;
-                // let randNum = random(this.minCustPerHour, this.maxCustPerHour);
-            // console.log(randNum);
             }
         },
 
