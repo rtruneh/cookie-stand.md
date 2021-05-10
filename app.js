@@ -16,54 +16,65 @@ function Shops(city, minCustPerHour, maxCustPerHour, avgCookieSold) {
         this.cookiesPerHour = [];
         this.custPerHour = [];
         allShops.push(this);
-}
+};
 //to calc random number
-this.random = function(min, max) {
-    return Math.floor(Math.random() * max - min + 1) + min;};
+let random = function(min, max) {
+    return Math.floor(Math.random() * max - min + 1) + min;
+}
     
 //to calc cust per hour using random function
 Shops.prototype.calcCustPerHour = function() {
     for (let i = 0; i < hours.length; i++) {
         this.custPerHour.push(random(this.minCustPerHour, this.maxCustPerHour));
     } 
-};
+}
 
 //calc cookies per hour
-Shops.prototype.calcCookiesPerHour = function() {
+Shops.prototype.calcCookiesPerHour = function(){
         this.calcCustPerHour();
       for (let i = 0; i < hours.length; i++) {
-          const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold)
-          this.cookiesPerHour.push(oneHour)
+          const oneHour = Math.ceil(this.custPerHour[i] * this.avgCookieSold);
+          this.cookiesPerHour.push(oneHour);
           this.totalDailyCookies += oneHour;
+    console.log(this.calcCookiesPerHour)
              }
-   };
+   }
 
 //render function and build table
 Shops.prototype.render = function() {
     this.calcCookiesPerHour();
-    //create table and row
+    //create table
         const table = document.getElementById('table')
         const tr = document.createElement('tr')
-        tr.textContent = this.city;
+        const th = document.createElement('th')
+        
         table.appendChild(tr);
-        //create header
-        const th = document.createElement('th');
-        th.textContent = this.hours;
         tr.appendChild(th);
+        th.textContent = this.city;
 
-        for (let i = 0; i = this.hours; i++){
+        for (var i = 0; i < hours.length; i++) {
+        
             const td = document.createElement('td');
-            td.textContent = this.hours[i];
-            tr.appendChild(td)
+            td.textContent = this.calcCookiesPerHour;
+            tr.appendChild(td);
         }
 
         const td = document.createElement('td');
-        td.textContent = this.cookiesPerHour;
-        tr.appendChild(td); 
-        table.appendChild(tr);
-            
-    
-    };
+        td.textContent = hours[i]
+        tr.appendChild(td)
+    }
+        // for (let i = 0; i = hours.length; i++){
+
+        //     const td = document.createElement('td');
+        //     td.textContent = this.calcCookiesPerHour;
+        //     tr.appendChild(td)
+        // }
+
+    //     // const td = document.createElement('td');
+    //     // td.textContent = this.cookiesPerHour;
+    //     // tr.appendChild(td); 
+    //     // table.appendChild(tr);
+    // };
 
 
 
