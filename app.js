@@ -38,13 +38,14 @@ Shops.prototype.calcCookiesPerHour = function(){
    };
 
 //calc daily total
+let totalCookies = 0;
    Shops.prototype.calcTotalDailyCookies = function() {
-       let totalCookies = 0
+       let totalCookies = 0;
        for (let i = 0; i < hours.length; i++){
-           totalCookies = this.cookiesPerHour[i];
+       totalCookies += this.cookiesPerHour[i];
        }
        return totalCookies;
-   };
+   }
 
 //render function and build table
 Shops.prototype.render = function() {
@@ -67,7 +68,7 @@ Shops.prototype.render = function() {
         }
     //show totals
     const td2 = document.createElement('td');
-    td2.textContent = 'total here';
+    td2.textContent = this.calcTotalDailyCookies();
     tr.appendChild(td2);
     };
 
@@ -78,27 +79,28 @@ Shops.prototype.render = function() {
         for(let i = 0; i < hours.length; i++){
             const th = document.createElement('th');
             th.textContent = hours[i];
-            trHead.append(th);
-         
+            table.appendChild(trHead)
+            trHead.appendChild(th);
         }
-        let table = document.getElementById('table');
-        table.append(trHead);
       };
 
+
+
       function footer(){
+          const tblFooter = document.createElement('tfoot');
+          table.appendChild(tblFooter);
           const trFooter = document.createElement('tr');
+          tblFooter.appendChild(trFooter);
           for(let i = 0; i < hours.length; i++){
+
               const th = document.createElement('th');
-              th.textContent = totalDailyCookies();
-              trFooter.append(th);
+              th.textContent = 'total';
+            //   
+              trFooter.appendChild(th);
           }
-              let table = document.getElementById('table');
-              table.append(trFooter);
           
 };
 
-     
-    
 
 
 footer();
