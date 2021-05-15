@@ -6,76 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
-    <h1> SALMON COOKIES</h1>
+ <body style="background-color: salmon;">
+
+    <img src="img/salmon.png" alt="salmon">
+    
+    <h1 style="border: 2px black;">
+    Salmon Cookies</h1>
 
     <table id="table">
-    
+     <thead id = "thead"></thead>
+     <tbody id = "tbody">
+         <tr id = "tr"></tr>
+     </tbody>
     </table>
 
 
-    <h2>Seattle</h2>
-    <ul id="seattle"></ul>
-    <h2>Tokyo</h2>
-    <ul id="tokyo"></ul>
-    <h2>Dubai</h2>
-    <ul id="dubai"></ul>
-    <h2>Paris</h2>
-    <ul id="paris"></ul>
-    <h2>Lima</h2>
-    <ul id="lima"></ul>
 
+<form id = "cookiestand">
+    <fieldset>
 
+        <label for = "name"> New Shop </label>
+        <input name="name" type = "text" size = "12" />
 
+        <label for = "minSalesPerHour"> Minimum sales per hour </label>
+        <input name = "minSalesPerHour" type = "text" size = "12" />
+        
+        <label for = "minSalesPerHour"> Maximum sales per hour </label>
+        <input name = "minSalesPerHour" type = "text" size = "12" />
+        
+        <label for = "minSalesPerHour"> Average cookies sold </label>
+        <input name = "minSalesPerHour" type = "text" size = "12" />
 
+        <button type = "submit">  Start New Shop</button>
 
-    <!-- <table border="1">
-        <colgroup>
-            <col style="background-color: sandybrown;" >
-        </colgroup>
-        <thead>
-        <tr>
-            <th> </th>
-            <th scope="col"> 6:00 am</th>
-            <th scope="col"> 7:00 am</th>
-            <th scope="col"> 8:00 am</th>
-            <th scope="col"> 9:00 am</th>
-            <th scope="col"> 10:00 am</th>
-            <th scope="col"> 11:00 am</th>
-            <th scope="col"> 12:00 pm</th>
-            <th scope="col"> 1:00 pm</th>
-            <th scope="col"> 2:00 pm</th>
-            <th scope="col"> 3:00 pm</th>
-            <th scope="col"> 4:00 pm</th>
-            <th scope="col"> 5:00 pm</th>
-            <th scope="col"> 6:00 pm</th>
-            <th scope="col"> 7:00 pm</th>
-            <th scope="col"> Daily Location Total</th>
-            </tr>
-            </thead>
-            <tr>
-           <td>Seattle</td>
-        </tr>
-        <tr> 
-            <td> Tokyo </td>
-            <td></td>
-        </tr>
-        <tr> 
-            <td> Dubai </td>
-        </tr>
-        <tr> 
-            <td> Paris </td>
-        </tr>
-        <tr> 
-            <td> Lima </td>
-        </tr>
-        <tfoot> 
-            <td> Total </td>
-            <td> colspan="14">875</td>
-        </tfoot>
-    </table> -->
+        </fieldset>
 
+    </fieldset>
+
+</form>
     
 </body>
 
