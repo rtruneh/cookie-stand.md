@@ -1,4 +1,3 @@
-  
 "use strict"
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', ]
 
@@ -33,7 +32,7 @@ Shops.prototype.generateHourly = function () {
 
 //creation of table
 function renderTable() {
-  tbl = document.getElementById('shop-table');
+  tbl = document.createElement('shop-table');
 //creating the framework
   const tHead = document.createElement('thead');
   const tBody = document.createElement('tbody');
@@ -106,24 +105,23 @@ function renderNew(city, minCustPerHour, maxCustPerHour, avgCookiesSold) {
   renderAllStores();
 };
 
-// function renderUpdate(shop, min, max, avg) {
-//   const trEl = document.getElementById(shop.city.replace(' ', '').toLowerCase());
+function renderUpdate(city, min, max, avg) {
+  const trEl = document.getElementById(shop.city.replace(' ', '').toLowerCase());
 
-//   shop.minCustPerHour = min;
-//   shop.maxCustPerHour = max;
-//   shop.avgCookiesSold = avg;
-//   shop.hourlyCookies = [];
-//   shop.dailyCookies = 0;
-//   shop.generateHourly();
+  shop.minCustPerHour = min;
+  shop.maxCustPerHour = max;
+  shop.avgCookiesSold = avg;
+  shop.hourlyCookies = [];
+  shop.dailyCookies = 0;
+  shop.generateHourly();
 
-//   for (let i = 0; i < shop.hourlyCookies.length; i++) {
-//     trEl.childNodes[i + 1].textContent = shop.hourlyCookies[i];
-//   }
-//   trEl.childNodes[trEl.childNodes.length - 1].textContent = shop.dailyCookies;
-// }
+  for (let i = 0; i < shop.hourlyCookies.length; i++) {
+    trEl.childNodes[i + 1].textContent = shop.hourlyCookies[i];
+  }
+  trEl.childNodes[trEl.childNodes.length - 1].textContent = shop.dailyCookies;
+}
 
 function renderTotals() {
-
   const tFoot = document.getElementById('t-foot');
   tFoot.innerHTML = '';
 
@@ -154,44 +152,33 @@ function renderTotals() {
 }
 
 //to render new information based on users entry
-// document.getElementById('newShop').addEventListener('submit',handleNewShop);
- function handleNewShop(event) {
+document.getElementById('newShop').addEventListener('submit',function (event){
   event.preventDefault();
-  // let exists = false;
+  let exists = false;
+  console.log(event.target.city.value)
   const city = event.target.city.value;
-  const minCustPerHour = parseInt(event.target.minCustPerHour.value);
-  const maxCustPerHour = parseInt(event.target.maxCustPerHour.value);
-  const avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
+  const min = parseInt(event.target.min.value);
+  const max = parseInt(event.target.max.value);
+  const avg = parseInt(event.target.avg.value);
 
-  if(!event.target.city.value || !event.target.minCustPerHour.value || !event.target.maxCustPerHour.value || !event.target.avgCookiesSold.value){
-    return alert('Fields cannot be empty!');
-  }
-
-  function submitShop(){
-  for (let i = 0; i < allShops.length; i++) {
-    if (city === storeNames[i]){
-      minCustPerHour[i] = minCustSubmission;
-      maxCustPerHour[i] = maxCustSubmission;
-      avgCookiesSold[i] = avgSalesSubmission;
-      return;
-    // if (allShops[i].id === store.replace(' ', '').toLowerCase()) {
-    //   exists = true;
-    //   break;
+  for(let i = 0; i < allShops.length; i++){
+    if (allShops[i].id === city.replace(' ', '').toLowerCase()) {
+      exists = true;
+      break;
     }
   }
-};
 
-  // if (exists === true) {
-  //   renderUpdate(allShops[i], min, max, avg);
-  // } else {
-    renderNew(city, minCustPerHour, maxCustPerHour, avgCookiesSold);
-  // }
+  if (exists === true) {
+    renderUpdate(allShops[i], min, max, avg);
+  } else {
+    renderNew(city, min, max, avg);
+  }
 
-  event.target.store.value = null;
+  event.target.city.value = null;
   event.target.min.value = null;
   event.target.max.value = null;
   event.target.avg.value = null;
-};
+});
 
 function setup() {
   renderTable();
