@@ -7,12 +7,12 @@
     <title>Document</title>
     <STYLE>
         body {background-color: #41b3a3;}
-        .header {position: absolute; top:100px; left: 250px; }
-        .salmon {opacity: .4; }
+        .header {position: absolute; top:150px; left: 400px; }
+        .salmon {opacity: .4; width: 100% }
         h1 { font-family:fantasy; font-style: oblique; font-size: 30pt;}
-      
- .items{display: inline-block;}
- .image1 {position: relative; margin: 10px; width: 25%; height: 0 auto; float: left; margin-right:10px;}
+        .list{ font-size: 25pt;}
+        .items{display: inline-block;}
+        .image1 {position: relative; margin: 10px; width: 25%; height: 0 auto; float: left; margin-right:10px;}
         .image1 div{position: absolute; bottom: 0; right: 0; color: white; background: black; visibility:hidden;}
         .image1:hover div{width: 100px; padding: 5px 5px; visibility: visible; opacity: .4;}
         .image1:hover { opacity: .8; cursor:pointer;}
@@ -32,7 +32,11 @@
         .image4:hover div{width: 150px; padding: 8px 15px; visibility: visible; opacity: .4;}
         .image4:hover { opacity: .8; cursor:pointer;}
         .li{list-style: none;}
+        .container{position: relative; }
+        .wrap{padding-bottom: 2.5rem;}
+        footer{color: black; background-color: grey; position: absolute; bottom: 0; width: 100%; text-align: center;height: 2.5rem;}
         </style>
+       
 
     
 </head>
@@ -77,7 +81,12 @@
 </div>
 
 </body>
-<footer>
-
-</footer>
+<div class = "container">
+    <div class = "wrap">
+        <footer>
+        <p>Copyright &copy; 2017 All Rights Reserved by Pat's Cookies</p>
+    </footer>
+    </div>
+    </div>
+    
 </html>
